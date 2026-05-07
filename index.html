@@ -712,27 +712,60 @@
           </div>
         </div>
 
-        <!-- ── Robotic Arm ── -->
-        <div class="col-md-4 mb-4 d-flex">
-          <div class="proj-card w-100">
-            <div class="proj-title">Robotic Arm Actuation</div>
-            <div class="proj-sub">WPI</div>
-            <div class="proj-date">Jan – Mar 2022</div>
-            <div class="proj-desc">
-              Programmed a three-link robotic arm to reach any 3D position using inverse dynamics for real-time joint
-              angle, velocity, and acceleration computation. Integrated computer vision for autonomous object sorting.
+        <!-- ── Robotic Arm — full-width ── -->
+        <div class="col-12 mb-4">
+          <div class="proj-card">
+
+            <!-- Header: video + description -->
+            <div class="row align-items-start mb-2">
+              <div class="col-md-4 mb-3 mb-md-0">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/arm actuatuation.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="col-md-8">
+                <div class="proj-title">Robotic Arm Actuation</div>
+                <div class="proj-sub">WPI</div>
+                <div class="proj-date">Jan – Mar 2022</div>
+                <div class="proj-desc">
+                  Programmed a three-link robotic arm to reach any 3D position using inverse dynamics for real-time
+                  joint angle, velocity, and acceleration computation. Integrated computer vision for autonomous object
+                  sorting.
+                </div>
+                <div class="proj-tags">
+                  <span class="tech-tag">Inverse Dynamics</span>
+                  <span class="tech-tag">Computer Vision</span>
+                  <span class="tech-tag">MATLAB</span>
+                  <span class="tech-tag">C++</span>
+                </div>
+              </div>
             </div>
-            <div class="proj-tags">
-              <span class="tech-tag">Inverse Dynamics</span>
-              <span class="tech-tag">Computer Vision</span>
-              <span class="tech-tag">MATLAB</span>
-              <span class="tech-tag">C++</span>
+
+            <!-- Images -->
+            <div class="proj-dev-label">Development Images</div>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <img src="./assets/img/arm motion tracking.jpg" alt="Arm motion tracking"
+                  style="width:100%; border-radius:6px; object-fit:cover;">
+                <p class="proj-vid-caption">End-effector motion path tracking through 3D space</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="./assets/img/arm movement potential.png" alt="Arm movement potential"
+                  style="width:100%; border-radius:6px; object-fit:cover;">
+                <p class="proj-vid-caption">Reachable workspace visualization showing positional coverage</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                <img src="./assets/img/arm velocity acceleration graph.jpg" alt="Velocity and acceleration graph"
+                  style="width:100%; border-radius:6px; object-fit:cover;">
+                <p class="proj-vid-caption">Joint velocity and acceleration profiles from inverse dynamics computation</p>
+              </div>
             </div>
+
           </div>
         </div>
 
         <!-- ── Sensor Fusion ── -->
-        <div class="col-md-4 mb-4 d-flex">
+        <div class="col-md-6 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Sensor Fusion &amp; Robot Control</div>
             <div class="proj-sub">WPI</div>
@@ -752,7 +785,7 @@
         </div>
 
         <!-- ── Q-Learning Bomberman ── -->
-        <div class="col-md-4 mb-4 d-flex">
+        <div class="col-md-6 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Q-Learning Bomberman AI Agent</div>
             <div class="proj-sub">WPI — RBE 470x: AI for Robotics</div>
