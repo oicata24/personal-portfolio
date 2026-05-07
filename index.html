@@ -47,7 +47,17 @@
     }
     .navbar-transparent .navbar-brand,
     .navbar-transparent .nav-link {
+      color: rgba(255, 255, 255, 0.5) !important;
+      transition: color 0.2s;
+    }
+    .navbar-transparent .navbar-brand,
+    .navbar-transparent .nav-link:hover,
+    .navbar-transparent .nav-link.nav-active {
       color: #fff !important;
+    }
+    .navbar-transparent .nav-link.nav-active {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1px;
     }
     .navbar-brand {
       font-weight: 700;
@@ -886,6 +896,21 @@
           $('html, body').animate({ scrollTop: target.offset().top - 68 }, 600, 'swing');
         }
       });
+
+      // Scrollspy — highlight nav link for the section currently in view
+      const navLinks = document.querySelectorAll('#navigation .nav-link[href^="#"]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.toggle('nav-active',
+                link.getAttribute('href') === '#' + entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+      document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
     });
   </script>
 
