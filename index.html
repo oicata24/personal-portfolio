@@ -281,6 +281,43 @@
     }
     .proj-tags { margin-top: 1rem; }
 
+    .vid-portrait {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .vid-landscape {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .proj-vid-caption {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin: 0.4rem 0 0.25rem;
+      text-align: center;
+    }
+    .proj-fine-print {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+    }
+    .proj-dev-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      border-top: 1px solid var(--dark-border);
+      padding-top: 1.25rem;
+    }
+
     .proj-video {
       margin-bottom: 1rem;
       border-radius: 6px;
@@ -589,34 +626,90 @@
       </div>
 
       <div class="row">
-        <!-- NASA Lunabotics -->
-        <div class="col-md-6 mb-4 d-flex">
-          <div class="proj-card w-100">
-            <div class="proj-title">NASA Lunabotics MQP</div>
-            <div class="proj-sub">WPI Senior Capstone</div>
-            <div class="proj-date">Aug 2022 – May 2023</div>
-            <div class="proj-desc">
-              Competed in NASA's Robotics Mining Competition. Led sensor integration and autonomy development including
-              hall effect and pressure sensor feedback loops, encoder-based autonomous drive and actuation control, and
-              computer vision navigation using AprilTag localization, stereo depth obstacle avoidance, and A* path
-              planning on a real-world robotic platform.
+
+        <!-- ── NASA Lunabotics — featured full-width ── -->
+        <div class="col-12 mb-4">
+          <div class="proj-card">
+
+            <!-- Header: photo + description -->
+            <div class="row align-items-start mb-2">
+              <div class="col-md-5 mb-3 mb-md-0">
+                <img src="./assets/img/lunar robot.jpg" alt="NASA Lunabotics Robot"
+                  style="width:100%; border-radius:6px; object-fit:cover; max-height:300px;">
+              </div>
+              <div class="col-md-7">
+                <div class="proj-title">NASA Lunabotics MQP</div>
+                <div class="proj-sub">WPI Senior Capstone</div>
+                <div class="proj-date">Aug 2022 – May 2023</div>
+                <div class="proj-desc">
+                  Competed in NASA's Robotics Mining Competition. Led sensor integration and autonomy development
+                  including hall effect and pressure sensor feedback loops, encoder-based autonomous drive and actuation
+                  control, and computer vision navigation using AprilTag localization, stereo depth obstacle avoidance,
+                  and A* path planning on a real-world robotic platform.
+                </div>
+                <div class="proj-tags">
+                  <span class="tech-tag">ROS</span>
+                  <span class="tech-tag">OpenCV</span>
+                  <span class="tech-tag">A* Path Planning</span>
+                  <span class="tech-tag">AprilTag</span>
+                  <span class="tech-tag">C++</span>
+                  <span class="tech-tag">Arduino</span>
+                </div>
+                <div class="mt-3">
+                  <a href="https://digital.wpi.edu/concern/student_works/gm80hz84z?locale=en" target="_blank"
+                    class="btn btn-outline-info btn-sm btn-round">View Thesis</a>
+                </div>
+              </div>
             </div>
-            <div class="proj-tags">
-              <span class="tech-tag">ROS</span>
-              <span class="tech-tag">OpenCV</span>
-              <span class="tech-tag">A* Path Planning</span>
-              <span class="tech-tag">AprilTag</span>
-              <span class="tech-tag">C++</span>
+
+            <!-- Development videos -->
+            <div class="proj-dev-label">Development Footage</div>
+
+            <!-- Row 1: portrait videos -->
+            <div class="row mb-2">
+              <div class="col-md-4 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/Excavator%20development.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Prototype excavation mechanism design and bucket assembly testing</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/Wheel%20encoders.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Encoder-based closed-loop wheel drive validation for autonomous navigation</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/hall%20effect%20sensor%20implementation.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Hall effect sensor integration for excavation arm limit detection</p>
+              </div>
             </div>
-            <div class="mt-3">
-              <a href="https://digital.wpi.edu/concern/student_works/gm80hz84z?locale=en" target="_blank"
-                class="btn btn-outline-info btn-sm btn-round">View Thesis</a>
+
+            <!-- Row 2: landscape videos -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <video class="vid-landscape" autoplay muted loop playsinline>
+                  <source src="./assets/video/excavator%20movement.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Full range-of-motion testing of the excavation arm actuation system</p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <video class="vid-landscape" autoplay muted loop playsinline>
+                  <source src="./assets/video/material%20deposit.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Tuning the material offloading and deposit sequence into the collection bin</p>
+              </div>
             </div>
+
+            <p class="proj-fine-print">* All footage shown is from development and testing phases. Video from the NASA competition is not available.</p>
+
           </div>
         </div>
 
-        <!-- Robotic Arm -->
-        <div class="col-md-6 mb-4 d-flex">
+        <!-- ── Robotic Arm ── -->
+        <div class="col-md-4 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Robotic Arm Actuation</div>
             <div class="proj-sub">WPI</div>
@@ -634,8 +727,8 @@
           </div>
         </div>
 
-        <!-- Sensor Fusion -->
-        <div class="col-md-6 mb-4 d-flex">
+        <!-- ── Sensor Fusion ── -->
+        <div class="col-md-4 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Sensor Fusion &amp; Robot Control</div>
             <div class="proj-sub">WPI</div>
@@ -654,23 +747,21 @@
           </div>
         </div>
 
-        <!-- Q-Learning Bomberman Agent -->
-        <div class="col-md-6 mb-4 d-flex">
+        <!-- ── Q-Learning Bomberman ── -->
+        <div class="col-md-4 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Q-Learning Bomberman AI Agent</div>
             <div class="proj-sub">WPI — RBE 470x: AI for Robotics</div>
             <div class="proj-date">2023</div>
-            <!-- VIDEO: drop your file at assets/video/bomberman-demo.mp4 and uncomment the block below,
-                 OR replace the entire div with a YouTube iframe once you have a link. -->
             <div class="proj-video">
               <video controls>
-                <source src="./assets/video/bomberman-demo-web.mp4" type="video/mp4">
+                <source src="./assets/video/bomberman-demo.mp4" type="video/mp4">
               </video>
             </div>
             <div class="proj-desc">
-              Trained a Q-learning reinforcement learning agent to play Bomberman autonomously. The agent learns optimal
-              policies for navigation, strategic bomb placement, and enemy evasion through iterative reward-based
-              training across thousands of game episodes in a custom Pygame environment.
+              Developed a Q-learning agent with linear function approximation for a Bomberman-style environment,
+              engineering hand-crafted state features and implementing temporal difference weight updates to train an
+              autonomous agent capable of navigating to the exit while avoiding monsters and bomb explosions.
             </div>
             <div class="proj-tags">
               <span class="tech-tag">Q-Learning</span>
