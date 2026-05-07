@@ -280,6 +280,21 @@
       flex-grow: 1;
     }
     .proj-tags { margin-top: 1rem; }
+
+    .proj-video {
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .proj-video video,
+    .proj-video iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
     .tech-tag {
       display: inline-block;
       background: rgba(255, 255, 255, 0.06);
@@ -573,7 +588,7 @@
 
       <div class="row">
         <!-- NASA Lunabotics -->
-        <div class="col-md-4 mb-4 d-flex">
+        <div class="col-md-6 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">NASA Lunabotics MQP</div>
             <div class="proj-sub">WPI Senior Capstone</div>
@@ -599,7 +614,7 @@
         </div>
 
         <!-- Robotic Arm -->
-        <div class="col-md-4 mb-4 d-flex">
+        <div class="col-md-6 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Robotic Arm Actuation</div>
             <div class="proj-sub">WPI</div>
@@ -618,7 +633,7 @@
         </div>
 
         <!-- Sensor Fusion -->
-        <div class="col-md-4 mb-4 d-flex">
+        <div class="col-md-6 mb-4 d-flex">
           <div class="proj-card w-100">
             <div class="proj-title">Sensor Fusion &amp; Robot Control</div>
             <div class="proj-sub">WPI</div>
@@ -636,6 +651,40 @@
             </div>
           </div>
         </div>
+
+        <!-- Q-Learning Bomberman Agent -->
+        <div class="col-md-6 mb-4 d-flex">
+          <div class="proj-card w-100">
+            <div class="proj-title">Q-Learning Bomberman AI Agent</div>
+            <div class="proj-sub">WPI — RBE 470x: AI for Robotics</div>
+            <div class="proj-date">2023</div>
+            <!-- VIDEO: drop your file at assets/video/bomberman-demo.mp4 and uncomment the block below,
+                 OR replace the entire div with a YouTube iframe once you have a link. -->
+            <div class="proj-video">
+              <video controls>
+                <source src="./assets/video/bomberman-demo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="proj-desc">
+              Trained a Q-learning reinforcement learning agent to play Bomberman autonomously. The agent learns optimal
+              policies for navigation, strategic bomb placement, and enemy evasion through iterative reward-based
+              training across thousands of game episodes in a custom Pygame environment.
+            </div>
+            <div class="proj-tags">
+              <span class="tech-tag">Q-Learning</span>
+              <span class="tech-tag">Reinforcement Learning</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pygame</span>
+            </div>
+            <div class="mt-3">
+              <a href="https://github.com/oicata24/RBE470x-project/tree/Carter-Project2" target="_blank"
+                class="btn btn-outline-info btn-sm btn-round">
+                <i class="fa fa-github"></i>&nbsp; View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
