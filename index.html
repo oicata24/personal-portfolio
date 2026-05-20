@@ -386,7 +386,7 @@
 <body class="sidebar-collapse">
 
   <!-- ══════════ Navbar ══════════ -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="100" id="mainNav">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="100" id="mainNav" style="background-color: transparent;">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="#top">Carter Bullock</a>
@@ -969,14 +969,16 @@
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     $(document).ready(function () {
-      // Navbar darkens on scroll
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 60) {
+      // Navbar darkens on scroll — run immediately to handle reload-at-scroll-position
+      function updateNavbar() {
+        if ($(window).scrollTop() > 60) {
           $('#mainNav').css('background-color', 'rgba(13, 17, 23, 0.97)');
         } else {
           $('#mainNav').css('background-color', 'transparent');
         }
-      });
+      }
+      updateNavbar();
+      $(window).scroll(updateNavbar);
 
       // Smooth scroll for anchor links
       $('a[href^="#"]').on('click', function (e) {
