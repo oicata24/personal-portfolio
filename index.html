@@ -170,6 +170,35 @@
     .about-bio p { margin-bottom: 1rem; }
     .text-accent { color: var(--accent); }
 
+    /* ── About tabs ── */
+    .about-tabs .nav-tabs {
+      border-bottom: 1px solid var(--dark-border);
+      margin-bottom: 1.25rem;
+    }
+    .about-tabs .nav-tabs .nav-link {
+      color: var(--text-muted) !important;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .about-tabs .nav-tabs .nav-link:hover {
+      color: #fff !important;
+      border-bottom-color: transparent;
+    }
+    .about-tabs .nav-tabs .nav-link.active {
+      color: #fff !important;
+      background: transparent;
+      border-bottom: 2px solid var(--accent);
+    }
+    .about-tabs .tab-content { color: #c9d5e0; font-size: 0.97rem; line-height: 1.85; }
+    .about-tabs .tab-content p { margin-bottom: 1rem; }
+    .personal-placeholder { color: var(--text-muted); font-style: italic; }
+
     /* ── Skills ── */
     .skill-group-label {
       font-size: 0.7rem;
@@ -459,7 +488,7 @@
         <div class="section-divider"></div>
       </div>
 
-      <div class="row align-items-center mb-5">
+      <div class="row align-items-start mb-5">
         <!-- Photo -->
         <div class="col-md-4 text-center mb-4 mb-md-0">
           <div class="photo-wrap">
@@ -468,30 +497,78 @@
             <i class="fa fa-user"></i>
           </div>
         </div>
-        <!-- Bio -->
-        <div class="col-md-8">
-          <div class="about-bio">
-            <p>
-              I'm a Software Engineer III and Team Lead at <span class="text-accent">Autonodyne</span>, where I design
-              and ship production software for autonomous platforms. Promoted to team lead within my first year, I own
-              project roadmaps, lead cross-functional engineering teams, and translate technical work directly into
-              business impact.
-            </p>
-            <p>
-              My background spans the full autonomous systems stack — from C++ messaging infrastructure and MAVLink
-              protocols to LiDAR sensor fusion pipelines and computer vision navigation. I hold a B.S. in Robotics
-              Engineering with a Minor in Computer Science from <span class="text-accent">Worcester Polytechnic
-              Institute</span>, where I competed in NASA's Robotics Mining Competition as part of my senior capstone.
-            </p>
-            <p>
-              I thrive at the intersection of hardware and software, turning complex systems requirements into reliable,
-              well-architected code.
-            </p>
+        <!-- Tabbed bio -->
+        <div class="col-md-8 about-tabs">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#tab-background" role="tab">Background</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-personal" role="tab">Personal</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+
+            <!-- Background tab -->
+            <div class="tab-pane active" id="tab-background" role="tabpanel">
+              <p>
+                I'm a Software Engineer III and Team Lead at <span class="text-accent">Autonodyne</span>, where I design
+                and ship production software for autonomous platforms. Promoted to team lead within my first year, I own
+                project roadmaps, lead cross-functional engineering teams, and translate technical work directly into
+                business impact.
+              </p>
+              <p>
+                My background spans the full autonomous systems stack — from C++ messaging infrastructure and MAVLink
+                protocols to LiDAR sensor fusion pipelines and computer vision navigation. I hold a B.S. in Robotics
+                Engineering with a Minor in Computer Science from <span class="text-accent">Worcester Polytechnic
+                Institute</span>, where I competed in NASA's Robotics Mining Competition as part of my senior capstone.
+              </p>
+              <p>
+                I thrive at the intersection of hardware and software, turning complex systems requirements into reliable,
+                well-architected code.
+              </p>
+              <a href="https://digital.wpi.edu/concern/student_works/gm80hz84z?locale=en" target="_blank"
+                class="btn btn-outline-info btn-round btn-sm mt-1">
+                <i class="nc-icon nc-book-bookmark"></i>&nbsp; Senior Thesis
+              </a>
+            </div>
+
+            <!-- Personal tab -->
+            <div class="tab-pane" id="tab-personal" role="tabpanel">
+              <div class="row align-items-center mb-4">
+                <div class="col-sm-5 text-center mb-3 mb-sm-0">
+                  <img src="./assets/img/glove.jpg" alt="Carter Bullock with Apollo astronaut glove at NASA"
+                    style="width:100%; max-width:220px; border-radius:8px; border:2px solid var(--accent);">
+                  <p style="font-size:0.72rem; color:var(--text-muted); margin-top:0.4rem;">
+                    NASA Texas Aerospace Scholars — Johnson Space Center
+                  </p>
+                </div>
+                <div class="col-sm-7">
+                  <p class="personal-placeholder">
+                    [Write about what first drew you to engineering — a moment, a project, or a person that sparked the
+                    interest.]
+                  </p>
+                  <p class="personal-placeholder">
+                    [Describe experiences like NASA Texas Aerospace Scholars and what it meant to shadow engineers at
+                    Johnson Space Center.]
+                  </p>
+                  <p class="personal-placeholder">
+                    [Share what keeps you passionate about robotics and autonomous systems — the problems you want to
+                    solve and where you see yourself going.]
+                  </p>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-sm-6 text-center">
+                  <video class="vid-portrait" autoplay loop muted playsinline>
+                    <source src="./assets/video/testing.mp4" type="video/mp4">
+                  </video>
+                  <p class="proj-vid-caption">Testing the lunabotics excavator belt system during pre-competition practice runs</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <a href="https://digital.wpi.edu/concern/student_works/gm80hz84z?locale=en" target="_blank"
-            class="btn btn-outline-info btn-round btn-sm mt-2">
-            <i class="nc-icon nc-book-bookmark"></i>&nbsp; Senior Thesis
-          </a>
         </div>
       </div>
 
@@ -682,31 +759,41 @@
             <!-- Development videos -->
             <div class="proj-dev-label">Development Footage</div>
 
-            <!-- Row 1: portrait videos -->
+            <!-- Row 1: portrait videos (3-up) -->
             <div class="row mb-2">
-              <div class="col-md-3 mb-3">
+              <div class="col-md-4 mb-3">
                 <video class="vid-portrait" autoplay muted loop playsinline>
                   <source src="./assets/video/Excavator%20development.mp4" type="video/mp4">
                 </video>
                 <p class="proj-vid-caption">Prototype excavation mechanism design and bucket assembly testing</p>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class="col-md-4 mb-3">
                 <video class="vid-portrait" autoplay muted loop playsinline>
                   <source src="./assets/video/Wheel%20encoders.mp4" type="video/mp4">
                 </video>
                 <p class="proj-vid-caption">Encoder-based closed-loop wheel drive validation for autonomous navigation</p>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class="col-md-4 mb-3">
                 <video class="vid-portrait" autoplay muted loop playsinline>
                   <source src="./assets/video/hall%20effect%20sensor%20implementation.mp4" type="video/mp4">
                 </video>
                 <p class="proj-vid-caption">Hall effect sensor integration for linear slider limit detection</p>
               </div>
-              <div class="col-md-3 mb-3">
+            </div>
+
+            <!-- Row 1b: portrait videos (2-up) -->
+            <div class="row mb-2">
+              <div class="col-md-6 mb-3">
                 <video class="vid-portrait" autoplay muted loop playsinline>
                   <source src="./assets/video/excavator-dry-test.mp4" type="video/mp4">
                 </video>
                 <p class="proj-vid-caption">Excavator belt system extracting material into a collection bucket for deposit later</p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/testing.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Excavator belt system during pre-competition practice runs</p>
               </div>
             </div>
 
