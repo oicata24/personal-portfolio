@@ -782,22 +782,49 @@
           </div>
         </div>
 
-        <!-- ── Sensor Fusion ── -->
-        <div class="col-md-6 mb-4 d-flex">
-          <div class="proj-card w-100">
+        <!-- ── Sensor Fusion — full-width ── -->
+        <div class="col-12 mb-4">
+          <div class="proj-card">
             <div class="proj-title">Sensor Fusion &amp; Robot Control</div>
             <div class="proj-sub">WPI</div>
             <div class="proj-date">Oct – Dec 2020</div>
             <div class="proj-desc">
-              Applied Kalman filtering to fuse sonar, infrared, and IMU sensor data into a unified state estimator
-              driving position-aware motion control algorithms. Achieved a perfect score in competitive field testing.
+              A series of robotics projects exploring multi-sensor integration and closed-loop control. Built systems
+              leveraging IMU, sonar, LiDAR, and light sensors across three distinct platforms — a balancing robot with
+              collision avoidance, a maze-exploring TurtleBot, and a line-following rover — each implementing different
+              control strategies including PID control, A* path planning, and sensor fusion.
             </div>
             <div class="proj-tags">
-              <span class="tech-tag">Kalman Filter</span>
+              <span class="tech-tag">IMU / Accelerometer</span>
+              <span class="tech-tag">360° LiDAR</span>
+              <span class="tech-tag">Sonar</span>
+              <span class="tech-tag">PID Control</span>
+              <span class="tech-tag">A* Path Planning</span>
+              <span class="tech-tag">ROS</span>
               <span class="tech-tag">Sensor Fusion</span>
-              <span class="tech-tag">IMU</span>
-              <span class="tech-tag">LiDAR</span>
               <span class="tech-tag">C++</span>
+            </div>
+
+            <div class="proj-dev-label mt-3">Project Demonstrations</div>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/Accelerometer.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Motor-driven robot using IMU sensing to balance objects across a homemade obstacle course with sonar-based collision avoidance</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/lidar%20detection.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">TurtleBot using 360° LiDAR point arrays to run A* path planning and mapping algorithms for full maze exploration with obstacle avoidance</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                <video class="vid-portrait" autoplay muted loop playsinline>
+                  <source src="./assets/video/line%20following.mp4" type="video/mp4">
+                </video>
+                <p class="proj-vid-caption">Robot using a light sensor and PID control to follow a line of tape across the ground</p>
+              </div>
             </div>
           </div>
         </div>
