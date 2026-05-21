@@ -292,6 +292,21 @@
       border-radius: 6px;
       display: block;
     }
+    .vid-drone-sync {
+      width: 100%;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .drone-vid-label {
+      font-size: 0.72rem;
+      font-family: 'Courier New', monospace;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
     .proj-vid-caption {
       font-size: 0.78rem;
       color: var(--text-muted);
@@ -898,6 +913,56 @@
           </div>
         </div>
 
+        <!-- ── Drone Tracker — full-width ── -->
+        <div class="col-12 mb-4">
+          <div class="proj-card">
+            <div class="proj-title">Computer Vision Drone Tracker</div>
+            <div class="proj-sub">Personal Project</div>
+            <div class="proj-date">2025</div>
+            <div class="proj-desc">
+              Developed a learning-free, single-script computer vision system for tracking fast-moving objects — including
+              drones — across video frames without any training data or ML model weights. Detection uses YOLOv8 for
+              first-frame initialization followed by a novel dual template matching pipeline combining pixel similarity
+              (60%) and Canny edge response (40%), driven by a Fermat spiral search pattern with Fibonacci-scaled radii.
+              Camera motion is compensated in real time via optical flow on background features, and multi-resolution
+              evaluation on the outer spiral provides a ~4× speedup. Output confidence is color-coded: green for
+              confirmed lock, yellow for soft estimate, and red for lost target.
+            </div>
+            <div class="proj-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">YOLOv8</span>
+              <span class="tech-tag">Template Matching</span>
+              <span class="tech-tag">Optical Flow</span>
+              <span class="tech-tag">Object Detection</span>
+              <span class="tech-tag">Computer Vision</span>
+            </div>
+            <div class="mt-3">
+              <a href="https://github.com/oicata24/drone-tracker" target="_blank"
+                class="btn btn-outline-info btn-round btn-sm">
+                <i class="fa fa-github"></i>&nbsp; View on GitHub
+              </a>
+            </div>
+
+            <div class="proj-dev-label mt-3">Tracking Demonstration</div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="drone-vid-label">Raw Footage</div>
+                <video id="drone-raw" class="vid-drone-sync" muted playsinline>
+                  <source src="./assets/video/V_DRONE_019_web.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="drone-vid-label">Tracked Output</div>
+                <video id="drone-tracked" class="vid-drone-sync" muted playsinline>
+                  <source src="./assets/video/V_DRONE_019_tracked_web.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <p class="proj-vid-caption">Side-by-side comparison of raw drone footage and the Fermat spiral tracker output, color-coded by detection confidence.</p>
+          </div>
+        </div>
+
         <!-- ── Q-Learning Bomberman — full-width ── -->
         <div class="col-12 mb-4">
           <div class="proj-card">
@@ -1017,6 +1082,39 @@
       }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
       document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+
+      // ── Synchronized drone tracker videos ──
+      const droneRaw = document.getElementById('drone-raw');
+      const droneTracked = document.getElementById('drone-tracked');
+      if (droneRaw && droneTracked) {
+        let syncing = false;
+
+        function syncVideos(master, slave) {
+          if (syncing) return;
+          syncing = true;
+          if (Math.abs(master.currentTime - slave.currentTime) > 0.08) {
+            slave.currentTime = master.currentTime;
+          }
+          syncing = false;
+        }
+
+        function restartBoth() {
+          droneRaw.currentTime = 0;
+          droneTracked.currentTime = 0;
+          droneRaw.play();
+          droneTracked.play();
+        }
+
+        droneRaw.addEventListener('timeupdate', () => syncVideos(droneRaw, droneTracked));
+        droneTracked.addEventListener('timeupdate', () => syncVideos(droneTracked, droneRaw));
+        droneRaw.addEventListener('ended', restartBoth);
+        droneTracked.addEventListener('ended', restartBoth);
+
+        Promise.all([
+          droneRaw.play().catch(() => {}),
+          droneTracked.play().catch(() => {})
+        ]);
+      }
     });
   </script>
 
